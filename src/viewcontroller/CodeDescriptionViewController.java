@@ -48,15 +48,16 @@ public class CodeDescriptionViewController extends VBox {
     private void init() {
         // create pane of description and subtitle of pane
         Pane descriptionPane = new Pane();
+        
         descriptionText = new Label();
-        descriptionText.textProperty().bind(this.codeDescriptionModel.descriptionTextProperty());
         setupLabelInContainer(descriptionText);
+        descriptionText.textProperty().bind(this.codeDescriptionModel.descriptionTextProperty());
         descriptionPane.getChildren().add(descriptionText);
 
         Pane subtitlePane = new Pane();
-        subtitleText = new Label();
-        subtitleText.textProperty().bind(this.codeDescriptionModel.subtitleTextProperty());
+        subtitleText = new Label();   
         setupLabelInContainer(subtitleText);
+        subtitleText.textProperty().bind(this.codeDescriptionModel.subtitleTextProperty());
         subtitlePane.getChildren().add(subtitleText);
 
         // implenments & add pane into list
@@ -68,6 +69,7 @@ public class CodeDescriptionViewController extends VBox {
     }
 
     protected void setupLabelInContainer(Label label) {
+        
         label.setTextFill(Color.valueOf(COLOR_DESCRIPTION_TEXT_PSEUDOCODE_CONTAINER));
         label.setFont(new Font(FONT_PSEUDOCODE_CONTAINER_TEXT, SIZE_PSEUDOCODE_CONTAINER_TEXT));
     }

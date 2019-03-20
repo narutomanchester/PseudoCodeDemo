@@ -19,6 +19,7 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import model.*;
@@ -37,7 +38,7 @@ public class JavaFXDemo extends Application {
         initView();
         initBtn();
         
-        Scene scene = new Scene(root, 300, 250);
+        Scene scene = new Scene(root, Screen.getPrimary().getBounds().getWidth(), Screen.getPrimary().getBounds().getHeight());
         primaryStage.setTitle("Algorithm Visulaztion");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -72,7 +73,7 @@ public class JavaFXDemo extends Application {
                     @Override
                     public void handle(ActionEvent event) {
                         // set new value for pseudoCode
-                        pseudoCodeDescriptionContainer.settModel(String.valueOf(i), String.valueOf(i*999999));
+                        pseudoCodeDescriptionContainer.settModel(String.valueOf(i), String.valueOf(i*999999), i % 5);
           
                         i++;
                     }

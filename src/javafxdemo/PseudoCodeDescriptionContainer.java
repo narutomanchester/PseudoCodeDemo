@@ -41,15 +41,17 @@ public class PseudoCodeDescriptionContainer extends VBox {
     private CodeDescriptionModel codeDescriptionModel;
     private PseudoCodeModel pseudoCodeModel;
     
+    private CodeDescriptionViewController codeDescriptionViewController;
+    private PseudoCodeViewController pseudoCodeViewController;
+    
     // set model
-    public void settModel(String description, String subTitle){
+    public void settModel(String description, String subTitle, int selectedId){
         codeDescriptionModel.setDescriptionText(description);
         codeDescriptionModel.setsubtitleText(subTitle);
+        
+        pseudoCodeViewController.setHightlight(selectedId);
     }
-    
-    
-    
-    private CodeDescriptionViewController codeDescriptionViewController;
+ 
     public PseudoCodeDescriptionContainer() {
         // define model
         pseudoCodeModel = new PseudoCodeModel();
@@ -57,8 +59,8 @@ public class PseudoCodeDescriptionContainer extends VBox {
 
         // define viewController 
         codeDescriptionViewController = new CodeDescriptionViewController(this.codeDescriptionModel);
+        pseudoCodeViewController = new PseudoCodeViewController(this.pseudoCodeModel);
         
-        PseudoCodeViewController pseudoCodeViewController = new PseudoCodeViewController(this.pseudoCodeModel);
         getChildren().add(codeDescriptionViewController);
         getChildren().add(pseudoCodeViewController);
 
